@@ -3,17 +3,17 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-     const [weatherData, setWeatherData] = useState({ready: true});
-    function handleResponse(response) {D
+     const [weatherData, setWeatherData] = useState({ready: false});
+    function handleResponse(response) {
         console.log(response.data);
             setWeatherData({
             ready: true,
-            temperature: response.data.main.temp,
-            humidity: response.data.main.humidity,
-            description: response.data.main.humidity,
-            iconUrl: "https://ssl.gstatic.com/onebox/weather/64/cloudy.png",
-            wind: response.data.main.wind.speed,
-            city: response.data.name
+            temperature: response.data.temperature.current,
+            humidity: response.data.temperature.humidity,
+            description: response.data.condition.description,
+            iconUrl: response.data.condition.icon_url,
+            wind: response.data.wind.speed,
+            city: response.data.city
         });
         
        
@@ -70,10 +70,10 @@ export default function Weather() {
         );
 
     } else {
-    const apiKey = "6f1874ea3oecc504fe31e30b5t90ef8e";
+    const apiKey = "fbef01f4et1b02o0d25c27210a43ef3f";
     let city = "New York";
     let apiUrl = 
-    `https://api.shecodes.io/weather/v1/current?query=${city}&appid=${apiKey}&units=imperial`;
+    `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
     return  "Loading..";
