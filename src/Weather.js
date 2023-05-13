@@ -10,7 +10,7 @@ export default function Weather() {
             ready: true,
             temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
-            date: response.data.date,
+            date: "Wednesday 07:00", 
             description: response.data.condition.description,
             iconUrl: response.data.condition.icon_url,
             wind: response.data.wind.speed,
