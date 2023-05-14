@@ -12,7 +12,7 @@ export default function Weather(props) {
             ready: true,
             temperature: response.data.temperature.current,
             humidity: response.data.temperature.humidity,
-            date: new Date(response.data.dt * 1000), 
+            date: new Date(response.data.time * 1000), 
             description: response.data.condition.description,
             iconUrl: response.data.condition.icon_url,
             wind: response.data.wind.speed,
@@ -81,6 +81,7 @@ export default function Weather(props) {
     `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
+    
     return  "Loading..";
     }
 
