@@ -15,7 +15,7 @@ function fahrenheit() {
     return (props.celsius * 9)/5 + 32;
 }
 
-    if (unit === "celius") {
+    if (unit === "celsius") {
     return (
         <div className="WeatherTemperature">
         <span className="temperature">{Math.round(props.celsius)}</span>
